@@ -1,3 +1,6 @@
+load "Movie.rb"
+load 'MoviesList.rb'
+
 def print_long_films(long_films_method)
   puts "ТОП 5 самых долгих фильмов"
   long_films_method.each_with_index { |m, num | puts "#{num+1}: #{m.name} - #{m.time} минут"}
@@ -41,9 +44,14 @@ def print_mov_actor_count(mov_actor_count_method)
   }
 end
 
+def print_film_name(selects_film, set_rate)
+ p selects_film
+ p set_rate
+end
+
 
 movies = MoviesList.new("movies.txt")
-
+movie = MyMoviesList.new("movies.txt")
 
 print_long_films(movies.long_films)
 puts
@@ -60,3 +68,6 @@ puts
 print_mov_director_count(movies.mov_director_count)
 puts
 print_mov_actor_count(movies.mov_actor_count)
+puts
+
+print_film_name(movie.selects_film("The Bourne Ultimatum"), 3)

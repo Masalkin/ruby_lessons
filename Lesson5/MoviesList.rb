@@ -43,3 +43,13 @@ class MoviesList
     act.flatten.sort_by {|a| a}.group_by{|a| a}
   end
 end
+
+class MyMoviesList < MoviesList
+  def selects_film(film_name)
+    @movies.select{ |m| m.has_name?(film_name)}
+  end
+
+  def set_rate(myrate)
+    @myrate = myrate
+  end
+end
