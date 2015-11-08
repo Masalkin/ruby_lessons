@@ -24,4 +24,8 @@ class Movie
     @genre.split(",").include?(genre_name)
   end
 
+  def has_name?(film_name)
+    @name.include?(film_name)
+  end
+
 end
