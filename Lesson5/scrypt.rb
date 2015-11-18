@@ -1,5 +1,7 @@
-load "Movie.rb"
-load 'MoviesList.rb'
+
+load 'Movie.rb'
+load  'MoviesList.rb'
+
 
 def print_long_films(long_films_method)
   puts "ТОП 5 самых долгих фильмов"
@@ -44,30 +46,28 @@ def print_mov_actor_count(mov_actor_count_method)
   }
 end
 
-def print_film_name(selects_film, set_rate)
- p selects_film
- p set_rate
-end
 
 
 movies = MoviesList.new("movies.txt")
 movie = MyMoviesList.new("movies.txt")
+ancient = MyMoviesList::AncientMovie.new
 
-print_long_films(movies.long_films)
+
+movie.selects_film("The Bourne Ultimatum", 5, "2007-02-19")
+movie.selects_film("The Departed", 3, "2010-03-03")
+movie.selects_film("Back to the Future", 5, "2000-06-15")
+movie.selects_film("Alien", 5, "1999-05-07")
+movie.selects_film("Once Upon a Time in America", 4, "2000-06-30")
+movie.selects_film("For a Few Dollars More", 1, "1998-01-05")
+movie.selects_film("Rashomon", 2, "2001-07-08")
+movie.selects_film("Elite Squad: The Enemy Within", 1, "2001-07-09")
+
+p movie.select_films_norate
 puts
-print_by_genre(movies.by_genre("Comedy"))
 puts
-print_all_directors(movies.film_director)
+p movie.select_film_views
 puts
-print_reject_genre_films(movies.genre_reject("Comedy"))
-puts
-print_sort_field(movies.sort_field("actor"))
-puts
-print_dont_usa(movies.dont_usa)
-puts
-print_mov_director_count(movies.mov_director_count)
-puts
-print_mov_actor_count(movies.mov_actor_count)
 puts
 
-print_film_name(movie.selects_film("The Bourne Ultimatum"), 3)
+
+

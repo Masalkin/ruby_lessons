@@ -14,6 +14,8 @@ class Movie
     @rate = movie[7]
     @director = movie[8]
     @actor = movie[9].strip
+    @myrating = []
+    @view_date = []
   end
 
   def actors
@@ -26,6 +28,26 @@ class Movie
 
   def has_name?(film_name)
     @name.include?(film_name)
+  end
+
+  def my_rating(rate_count)
+    @myrating = rate_count
+  end
+
+  def has_myrate?
+    @myrating == []
+  end
+
+  def get_myrate
+    @myrating
+  end
+
+  def view_date(view_date)
+    @view_date = view_date
+  end
+
+  def get_view_date
+    @view_date
   end
 
 end

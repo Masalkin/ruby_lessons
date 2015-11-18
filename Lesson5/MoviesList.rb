@@ -45,11 +45,35 @@ class MoviesList
 end
 
 class MyMoviesList < MoviesList
-  def selects_film(film_name)
-    @movies.select{ |m| m.has_name?(film_name)}
+  def selects_film(film_name, myrat, indate)
+    film = @movies.detect{ |m| m.has_name?(film_name); }
+    film.my_rating(myrat)
+    film.view_date(indate)
   end
 
-  def set_rate(myrate)
-    @myrate = myrate
+  def select_films_norate
+    @movies.select{ |m| m.has_myrate?}.sort_by{|m| m.rate*rand}.last(5)
   end
+
+  def select_film_views
+    @movies.reject{ |m| m.has_myrate?}.sort_by{ |m| m.get_view_date}.reverse.last(5).sort_by{ |m| m.get_myrate*rand}
+  end
+
+  class AncientMovie < Movie
+    p "тест"
+  end
+
+  class ClassicMovie < Movie
+
+  end
+
+  class ModernMovie < Movie
+
+  end
+
+  class NewMovie < Movie
+
+  end
+
+
 end
