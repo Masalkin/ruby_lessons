@@ -60,11 +60,11 @@ class MyMoviesList < MoviesList
   end
 
   def select_ancient
-    @movies.select{ |m| m.get_ancient}
+    @movies.select{ |m| m.get_ancient}.sort_by{ |m| m.get_rating_imdb}.last(1)
   end
 
   class AncientMovie < Movie
-
+    select_ancient - "Самый интересный фильм" - get_year
   end
 
   class ClassicMovie < Movie

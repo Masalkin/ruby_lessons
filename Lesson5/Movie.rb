@@ -51,8 +51,16 @@ class Movie
   end
 
   def get_ancient
-    @years = 1900..1945
-    @years.include?(@year.to_i)
+    years = 1900..1945
+    years.include?(@year.to_i)
+  end
+
+  def get_rating_imdb
+    @rate
+  end
+
+  def get_year
+    @year
   end
 
 end
