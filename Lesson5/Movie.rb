@@ -50,4 +50,9 @@ class Movie
     @view_date
   end
 
+  def get_ancient
+    @years = 1900..1945
+    @years.include?(@year.to_i)
+  end
+
 end

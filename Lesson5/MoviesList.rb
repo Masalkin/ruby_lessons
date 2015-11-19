@@ -59,8 +59,12 @@ class MyMoviesList < MoviesList
     @movies.reject{ |m| m.has_myrate?}.sort_by{ |m| m.get_view_date}.reverse.last(5).sort_by{ |m| m.get_myrate*rand}
   end
 
+  def select_ancient
+    @movies.select{ |m| m.get_ancient}
+  end
+
   class AncientMovie < Movie
-    p "тест"
+
   end
 
   class ClassicMovie < Movie
