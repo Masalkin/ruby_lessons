@@ -16,7 +16,14 @@ class Movie
     @actor = movie[9].strip
     @myrating = []
     @view_date = []
+    @list = load_list
   end
+
+  def my_metod(director_name)
+    director_name
+  end
+
+
 
   def actors
     @actor.split(",")

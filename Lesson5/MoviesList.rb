@@ -2,8 +2,28 @@ class MoviesList
   require "date"
 
   def initialize(file_name)
-    @file_name = file_name
-    @movies = File.readlines(@file_name).map{|x| film = Movie.new(x)}
+     @file_name = file_name
+     @movies = File.readlines(@file_name).map{ |m| film_fields = m.split("|")
+      a_years = 1900..1945
+      c_years = 1945..1968
+      m_years = 1968..2000
+      n_years = 2000..2015
+
+      a_years = a_years.include?(film_fields[2].to_i)
+      c_years = c_years.include?(film_fields[2].to_i)
+      m_years = m_years.include?(film_fields[2].to_i)
+      n_years = n_years.include?(film_fields[2].to_i)
+      if a_years
+        @movies = MyMoviesList::AncientMovie.new(m)
+      elsif c_years
+        @movies = MyMoviesList::ClassicMovie.new(m)
+      elsif m_years
+        @movies = MyMoviesList::ModernMovie.new(m)
+      elsif n_years
+        @movies = MyMoviesList::NewMovie.new(m)
+      end
+    }
+
   end
 
   def load_list

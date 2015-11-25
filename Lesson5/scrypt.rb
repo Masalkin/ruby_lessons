@@ -48,9 +48,8 @@ end
 
 
 
-movies = MoviesList.new("movies.txt")
-movie = MyMoviesList.new("movies.txt")
 
+movie = MyMoviesList.new("movies.txt")
 
 
 movie.selects_film("The Bourne Ultimatum", 5, "2007-02-19")
